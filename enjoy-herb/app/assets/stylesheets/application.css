@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #fafbf8; color: #25362b; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 24px 64px; }
+a { color: #27623d; text-underline-offset: 3px; }
+h1 { font-size: 1.7rem; }
+h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.site-header, .page-heading, .actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.site-header { justify-content: space-between; border-bottom: 1px solid #d9e1d6; padding-bottom: 18px; margin-bottom: 30px; }
+.site-header span, .muted { color: #657262; font-size: .85rem; }
+.brand { font-weight: 700; text-decoration: none; }
+.page-heading { justify-content: space-between; }
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+input[type="text"], input[type="search"], textarea { width: 100%; font: inherit; color: inherit; border: 1px solid #aebdaa; border-radius: 6px; padding: 10px 12px; background: white; }
+:focus-visible { outline: 3px solid #8bb79b; outline-offset: 3px; }
+.button, button, input[type="submit"] { display: inline-block; border: 1px solid #27623d; border-radius: 6px; padding: 8px 16px; background: #27623d; color: white; font: inherit; text-decoration: none; cursor: pointer; }
+.field { margin: 20px 0; }
+.notes { list-style: none; padding: 0; }
+.note-card { background: white; padding: 18px 20px; border: 1px solid #d9e1d6; border-radius: 8px; margin-bottom: 12px; overflow-wrap: anywhere; }
+.note-card p { margin: 0; color: #657262; white-space: pre-wrap; }
+.note-body { white-space: pre-wrap; overflow-wrap: anywhere; min-height: 100px; }
+.notice { padding: 12px; background: #e6f2e5; border-radius: 6px; }
+.errors { color: #862e2e; background: #fff0ee; padding: 12px 18px; border-radius: 6px; }
+.danger { color: #862e2e; background: transparent; border-color: #d9bab5; }
+.empty { padding: 30px 0; color: #657262; }
+.empty[data-empty="false"] { display: none; }
+.skeleton { height: 98px; border-radius: 8px; margin-bottom: 12px; background: #e3e9e0; animation: pulse 1s ease-in-out infinite alternate; }
+@keyframes pulse { to { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }

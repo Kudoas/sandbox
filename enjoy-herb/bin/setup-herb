@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require "json"
+require "fileutils"
+require "open3"
+
+root = File.expand_path("..", __dir__)
+Dir.chdir(root) do
+  sha = JSON.parse(File.read("config/herb_sources.json")).fetch("herb")
+  source = ".dependencies/herb"
+  unless File.directory?(File.join(source, ".git"))
+    FileUtils.mkdir_p(".dependencies")
+    system("git", "clone", "--no-checkout", "--depth", "1",
+      "https://github.com/marcoroth/herb.git", source, exception: true)
+  end
+
+  current, status = Open3.capture2("git", "-C", source, "rev-parse", "HEAD")
+  unless status.success? && current.strip == sha && File.file?("#{source}/package.json")
+    system("git", "-C", source, "fetch", "--depth", "1", "origin", sha, exception: true)
+    system("git", "-C", source, "checkout", "--detach", sha, exception: true)
+  end
+
+  system("npm", "ci", exception: true)
+  system("npm", "run", "build:herb", exception: true)
+  puts "Herb client built from #{sha}"
+end

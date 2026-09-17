@@ -1,0 +1,20 @@
+source "https://rubygems.org"
+
+gem "rails", "8.1.3.1"
+gem "propshaft"
+gem "sqlite3", ">= 2.1"
+gem "puma", ">= 5.0"
+gem "importmap-rails"
+gem "bootsnap", require: false
+gem "json", "~> 2.21.0" # Rails 8.1 passes parser options as a positional hash.
+gem "tzinfo-data", platforms: %i[windows jruby]
+
+# Herb needs Prism C sources, which are absent from the released Prism gem.
+gem "prism", github: "ruby/prism", tag: "v1.9.0"
+gem "herb", github: "marcoroth/herb", ref: "3d4c26debf79493db044d504889086b467689751"
+gem "reactionview", github: "marcoroth/reactionview", ref: "42bf1a02dd51e2fb76913dff89ae9c21f3e6965b"
+
+group :test do
+  gem "capybara"
+  gem "selenium-webdriver"
+end

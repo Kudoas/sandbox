@@ -1,0 +1,11 @@
+{
+  "name": "enjoy-herb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:herb": "esbuild .dependencies/herb/javascript/packages/client/src/index.ts --bundle --format=esm --target=es2022 --sourcemap --outfile=vendor/javascript/herb-client.esm.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

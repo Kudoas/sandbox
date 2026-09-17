@@ -1,0 +1,37 @@
+<%# herb:slots client %>
+<%# herb:state (query: "") %>
+
+<div class="page-heading">
+  <h1>メモ</h1>
+  <a href="<%= new_note_path %>" class="button">メモを作成</a>
+</div>
+
+<div class="search">
+  <label for="query">メモを検索</label>
+  <input id="query" type="search" value="<%= query %>" placeholder="タイトル・本文から検索" autocomplete="off" maxlength="200" aria-describedby="search-hint">
+  <p id="search-hint" class="muted">入力すると検索します。待っている間は「検索中…」が表示されます。</p>
+</div>
+
+<section id="search-results" aria-label="検索結果" aria-live="polite">
+  <Fragment delay="150" hold="300">
+    <div id="note-results">
+      <p class="empty" data-empty="<%= search_notes(query).empty? %>">メモが見つかりません。</p>
+      <ul class="notes">
+        <% search_notes(query).each do |note| %>
+          <%# herb:key note.id %>
+          <li class="note-card">
+            <h2><a href="<%= note_path(note) %>"><%= note.title %></a></h2>
+            <p><%= truncate(note.body, length: 100) %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <Fallback>
+      <div id="search-loading" role="status" aria-label="検索中">
+        <p>検索中…</p>
+        <div class="skeleton" aria-hidden="true"></div>
+        <div class="skeleton" aria-hidden="true"></div>
+      </div>
+    </Fallback>
+  </Fragment>
+</section>
