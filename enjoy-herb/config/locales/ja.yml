@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      note: メモ
+    attributes:
+      note:
+        title: タイトル
+        body: 本文
+    errors:
+      models:
+        note:
+          attributes:
+            title:
+              blank: を入力してください
+  errors:
+    format: "%{attribute}%{message}"

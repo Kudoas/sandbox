@@ -1,0 +1,23 @@
+/.dependencies/
+/.bundle/
+/vendor/bundle/
+/vendor/javascript/herb-client.esm.js
+/vendor/javascript/herb-client.esm.js.map
+/node_modules/
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+!/tmp/pids/
+/tmp/pids/*
+!/tmp/pids/.keep
+/storage/*
+!/storage/.keep
+/public/assets/
+/docs/design.md
+/docs/design.html
+/docs/implementation-plan.md
+/docs/implementation-plan.html
+
+# Ignore key files for decrypting credentials and more.
+/config/*.key

@@ -1,0 +1,24 @@
+<%= form_with(model: note) do |form| %>
+  <% if note.errors.any? %>
+    <div class="errors" role="alert">
+      <p>入力内容を確認してください。</p>
+      <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :title, "タイトル（必須）" %>
+    <%= form.text_field :title, required: true %>
+  </div>
+  <div class="field">
+    <%= form.label :body, "本文" %>
+    <%= form.text_area :body, rows: 8 %>
+  </div>
+  <div class="actions">
+    <%= form.submit "保存する" %>
+    <%= link_to "キャンセル", notes_path %>
+  </div>
+<% end %>

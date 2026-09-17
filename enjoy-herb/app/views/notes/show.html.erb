@@ -1,0 +1,9 @@
+<article>
+  <h1><%= @note.title %></h1>
+  <p class="note-body"><%= @note.body %></p>
+</article>
+<div class="actions">
+  <%= link_to "編集する", edit_note_path(@note), class: "button" %>
+  <%= link_to "一覧へ戻る", notes_path %>
+  <%= button_to "削除する", @note, method: :delete, class: "danger" %>
+</div>
